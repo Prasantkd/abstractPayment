@@ -29,7 +29,7 @@ public class CardDetailsController extends AbstractPayentGatewayConfig{
 	static HttpResponse resp;
 	static GatewayService gatewayService=new GatewayService();
 	static HttpSession session;
-	@RequestMapping( value ="/card" ,method = RequestMethod.POST)
+	@RequestMapping( value ="gateway/card" ,method = RequestMethod.POST)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public String getReference(@RequestParam ("cardNumber") String cardNumber, 
 			@RequestParam ("expirydate") String expDate, @RequestParam ("cvc") String cvc , 
@@ -78,7 +78,7 @@ public class CardDetailsController extends AbstractPayentGatewayConfig{
 	}
 
 
-	@RequestMapping( value ="/refund" ,method = RequestMethod.POST)
+	@RequestMapping( value ="gateway/refund" ,method = RequestMethod.POST)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public String refund(@RequestParam("gateway") String gateway,
 			@RequestParam("transactionId") String transactionId, Model model,

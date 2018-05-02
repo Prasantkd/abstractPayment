@@ -52,7 +52,7 @@
 	                    </div>                    
 	                </div>
 	                <div class="panel-body">
-	                    <form role="form" id="payment-form" method="POST" action="/card">
+	                    <form role="form" id="payment-form" method="POST" action="gateway/card">
 	                    	<div class="row">
 	                    		<div class="col-xs-12 vertical-margin">
 	                    			<label for="gateway">Select Payement Gateway</label>
@@ -74,7 +74,7 @@
 	                                            name="cardNumber"
 	                                            placeholder="Valid Card Number"
 	                                            autocomplete="cc-number"
-	                                            required autofocus 
+	                                           	value="4000056655665556"
 	                                        />
 	                                        <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
 	                                    </div>
@@ -91,8 +91,8 @@
 	                                        name="expirydate"
 	                                        placeholder="MM / YY"
 	                                        autocomplete="cc-exp"
-	                                        required 
-	                                    />
+											value="12/20"
+	                                        />
 	                                </div>
 	                            </div>
 	                            <div class="col-xs-5 col-md-5 pull-right vertical-margin">
@@ -104,7 +104,7 @@
 	                                        name="cvc"
 	                                        placeholder="CVC"
 	                                        autocomplete="cc-csc"
-	                                        required
+	                                        value="123"
 	                                    />
 	                                </div>
 	                            </div>
@@ -118,7 +118,7 @@
 		                                        name="cust_name"
 		                                        placeholder="Customer Name"
 		                                        autocomplete="cc-csc"
-		                                        required
+		                                        value="Prasant"
 		                                    />
 		                                </div>
 		                            </div>
@@ -134,7 +134,7 @@
 	                                        name="cust_emailId"
 	                                        placeholder="Customer Email"
 	                                        autocomplete="cc-csc"
-	                                        required
+	                                        value="pra@sant.com"
 	                                    />
 	                                </div>
 	                                </div>
@@ -149,7 +149,7 @@
 	                                        name="address"
 	                                        placeholder="Customer Address"
 	                                        autocomplete="cc-csc"
-	                                        required
+	                                        value="Bangalore"
 	                                    />
 	                                </div>
 	                                </div>
