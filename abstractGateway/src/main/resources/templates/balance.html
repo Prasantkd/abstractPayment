@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html xmlns='http://www.w3.org/1999/xhtml'
+	xmlns:th='http://www.thymeleaf.org'>
 <head>
 <title>Payment</title>
 <!-- Latest compiled and minified CSS -->
@@ -60,37 +61,11 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-xs-12 vertical-margin">
-								<h3 class="panel-title display-td">Refund</h3>
+								<h3 class="panel-title display-td"> Current Balance - <span th:text='${balance}'> $ </span>
+									</h3>
 							</div>
 						</div>
-					</div>
-					<div class="panel-body">
-						<form role="form" id="refund-form" method="POST" action="abstractGateway/refund">
-							<div class="row">
-								<div class="col-xs-12 vertical-margin">
-									<label for="gateway">Select Payement Gateway</label>
-									 <select class="form-control" id="gateway" name="gateway">
-										<option value="stripe" selected="selected">Stripe</option>
-										<option value="eway">E-way</option>
-										<option value="paypal">Paypal</option>
-									</select>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-xs-12 vertical-margin">
-									<label for="transaction-field"> Enter Transaction Id </label> 
-									<input
-										type="text" name="transactionId" class="form-control" />
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-xs-12 vertical-margin">
-									<button class="subscribe btn btn-success btn-lg btn-block"
-										type="submit">Submit</button>
-								</div>
-							</div>
-						</form>
-					</div>
+					</div>	
 				</div>
 			</div>
 		</div>

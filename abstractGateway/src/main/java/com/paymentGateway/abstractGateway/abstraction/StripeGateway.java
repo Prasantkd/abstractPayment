@@ -19,6 +19,7 @@ import com.stripe.exception.APIException;
 import com.stripe.exception.AuthenticationException;
 import com.stripe.exception.CardException;
 import com.stripe.exception.InvalidRequestException;
+import com.stripe.model.Balance;
 import com.stripe.model.Charge;
 import com.stripe.model.Refund;
 import com.stripe.net.RequestOptions;
@@ -150,5 +151,19 @@ public class StripeGateway implements Gateway{
 		return prop;
 	}
 
+	@Override
+	public HttpResponse getBalance(HttpSession session) {
+		Properties prop=(Properties)session.getAttribute(Constants.PROPERTIES);
+		Stripe.apiKey = (String)prop.getProperty(Constants.STRIPE_API_KEY);
+		try {
+			
+			Balance balance=Balance.retrieve();
+			httpResp.setAmount(balance.getAvailable().get(0).getAmount());
+			System.out.println(balance.getAvailable().get(0).getAmount());
+		} catch (AuthenticationException | InvalidRequestException | APIConnectionException | CardException
+				| APIException e) {
+		}
+		return httpResp;
+	}
 
 }

@@ -60,27 +60,20 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-xs-12 vertical-margin">
-								<h3 class="panel-title display-td">Refund</h3>
+								<h3 class="panel-title display-td">Check Balance</h3>
 							</div>
 						</div>
 					</div>
 					<div class="panel-body">
-						<form role="form" id="refund-form" method="POST" action="abstractGateway/refund">
+						<form role="form" id="refund-form" method="get" action="abstractGateway/balance">
 							<div class="row">
 								<div class="col-xs-12 vertical-margin">
-									<label for="gateway">Select Payement Gateway</label>
+									<label for="gateway">Select Payement Gateway to check balance</label>
 									 <select class="form-control" id="gateway" name="gateway">
 										<option value="stripe" selected="selected">Stripe</option>
 										<option value="eway">E-way</option>
 										<option value="paypal">Paypal</option>
 									</select>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-xs-12 vertical-margin">
-									<label for="transaction-field"> Enter Transaction Id </label> 
-									<input
-										type="text" name="transactionId" class="form-control" />
 								</div>
 							</div>
 							<div class="row">

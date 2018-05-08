@@ -28,6 +28,11 @@ public class GatewayService {
 			 resp=gateway.refund(session);
 		}
 		
+		else if(transaction.equalsIgnoreCase("balance"))
+		{
+			resp=gateway.getBalance(session);
+		}
+		
 		return resp;
 	}
 

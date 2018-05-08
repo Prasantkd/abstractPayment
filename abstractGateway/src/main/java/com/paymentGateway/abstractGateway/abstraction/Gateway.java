@@ -7,6 +7,6 @@ import com.paymentGateway.abstractgatewya.response.HttpResponse;
 public interface Gateway {
 	HttpResponse purchase(HttpSession session);
 	HttpResponse refund(HttpSession session);
-	
+	HttpResponse getBalance(HttpSession session);
 
 }

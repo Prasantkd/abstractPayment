@@ -4,6 +4,7 @@ public class HttpResponse {
 	private String statusCode;
 	private String description;
 	private String refId;
+	private long amount;
 	
 	public void setDescription(String description) {
 		this.description = description;
@@ -26,5 +27,12 @@ public class HttpResponse {
 	public void setRefId(String refId) {
 		this.refId = refId;
 	}
+	public Long getAmount() {
+		return amount;
+	}
+	public void setAmount(Long long1) {
+		this.amount = long1;
+	}
+	
 
 }

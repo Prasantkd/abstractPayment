@@ -29,7 +29,7 @@ public class CardDetailsController extends AbstractPayentGatewayConfig{
 	static HttpResponse resp;
 	static GatewayService gatewayService=new GatewayService();
 	static HttpSession session;
-	@RequestMapping( value ="gateway/card" ,method = RequestMethod.POST)
+	@RequestMapping( value ="abstractGateway/card" ,method = RequestMethod.POST)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public String getReference(@RequestParam ("cardNumber") String cardNumber, 
 			@RequestParam ("expirydate") String expDate, @RequestParam ("cvc") String cvc , 
@@ -78,7 +78,7 @@ public class CardDetailsController extends AbstractPayentGatewayConfig{
 	}
 
 
-	@RequestMapping( value ="gateway/refund" ,method = RequestMethod.POST)
+	@RequestMapping( value ="abstractGateway/refund" ,method = RequestMethod.POST)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public String refund(@RequestParam("gateway") String gateway,
 			@RequestParam("transactionId") String transactionId, Model model,
@@ -111,6 +111,20 @@ public class CardDetailsController extends AbstractPayentGatewayConfig{
 		}
 
 
+	}
+	
+	@RequestMapping(value="abstractGateway/balance", method=RequestMethod.GET)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	public String balance(@RequestParam("gateway") String gateway, Model model,
+			HttpServletRequest request)
+	{
+		session=request.getSession();
+		session.setAttribute(Constants.GATEWAY, gateway);
+		session.setAttribute("transaction", "balance");
+		session=config.getConfig(session);
+		resp=gatewayService.service(session);
+		model.addAttribute("balance", resp.getAmount());
+		return "balance";
 	}
 
 }

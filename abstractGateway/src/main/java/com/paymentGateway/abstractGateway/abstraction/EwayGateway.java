@@ -189,6 +189,9 @@ public class EwayGateway implements Gateway {
 		return httpResponse;	
 		}
 
-	
+	@Override
+	public HttpResponse getBalance(HttpSession session) {
+		return null;
+	}
 
 }
